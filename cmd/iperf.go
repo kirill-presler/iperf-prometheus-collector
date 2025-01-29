@@ -29,7 +29,7 @@ func runIperfTest() {
 		l.Info("Running iperf test", "target", target)
 		metrics.Submit(Metric{Label: "iperf_tests_started", Value: 1})
 		alias := ""
-		if len(settings.aliasList) {
+		if len(settings.AliasList) {
 			alias = settings.AliasList[index]
 		}
 		tags := map[string]string{

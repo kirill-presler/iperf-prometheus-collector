@@ -9,6 +9,7 @@ import (
 
 type Settings struct {
 	TargetList         []string
+	AliasList          []string
 	TestIntervalMs     int
 	Protocol           string
 	Options            string
@@ -58,6 +59,7 @@ func loadSettings() error {
 
 	settings = Settings{
 		TargetList:         targetList,
+		AliasList: 		    aliasList,
 		TestIntervalMs:     testIntervalMs,
 		Protocol:           protocol,
 		Options:            options,

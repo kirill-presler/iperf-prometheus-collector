@@ -19,6 +19,8 @@ type Settings struct {
 func loadSettings() error {
 	targetListRaw := os.Getenv("TARGET_LIST")
 	targetList := strings.Split(targetListRaw, ",")
+	aliasListRaw := os.Getenv("ALIAS_LIST")
+	aliasList := strings.Split(aliasListRaw, ",")
 
 	testIntervalMsStr := os.Getenv("TEST_INTERVAL_MS")
 	if testIntervalMsStr == "" {

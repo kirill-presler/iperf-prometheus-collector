@@ -25,14 +25,18 @@ type IperfResult struct {
 }
 
 func runIperfTest() {
-	for _, target := range settings.TargetList {
+	for index, target := range settings.TargetList {
 		l.Info("Running iperf test", "target", target)
 		metrics.Submit(Metric{Label: "iperf_tests_started", Value: 1})
-
+		alias := ""
+		if len(settings.aliasList) {
+			alias = settings.aliasList[index]
+		}
 		tags := map[string]string{
 			"target":   target,
 			"protocol": settings.Protocol,
 			"options":  settings.Options,
+			"alias":    alias,
 		}
 
 		udpOption := ""
